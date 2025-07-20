@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import os
 import sqlite3
 
-# ──────────────── SETUP ────────────────
+# SETUP 
 app = Flask(__name__)
 app.secret_key = 'supersecret'
 UPLOAD_FOLDER = 'uploads'
@@ -12,7 +12,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
-# ──────────────── DATABASE ────────────────
+#  DATABASE 
 def init_db():
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
@@ -34,7 +34,7 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
-# ──────────────── ROUTES ────────────────
+# ROUTES 
 
 @app.route('/')
 def index():
